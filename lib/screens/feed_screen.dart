@@ -14,8 +14,8 @@ class FeedScreen extends StatelessWidget {
     final width = MediaQuery.of(context).size.width;
     return Scaffold(
       backgroundColor:
-          width > webScreenSzie ? webBackgroundColor : mobileBackgroundColor,
-      appBar: width > webScreenSzie
+          width > webScreenSize ? webBackgroundColor : mobileBackgroundColor,
+      appBar: width > webScreenSize
           ? null
           : AppBar(
               backgroundColor: mobileBackgroundColor,
@@ -50,8 +50,8 @@ class FeedScreen extends StatelessWidget {
             itemCount: snapshot.data!.docs.length,
             itemBuilder: (context, index) => Container(
               margin: EdgeInsets.symmetric(
-                horizontal: width > webScreenSzie ? width * 0.3 : 0,
-                vertical: width > webScreenSzie ? 15 : 0,
+                horizontal: width > webScreenSize ? width * 0.3 : 0,
+                vertical: width > webScreenSize ? 15 : 0,
               ),
               child: PostCard(
                 snap: snapshot.data!.docs[index].data(),

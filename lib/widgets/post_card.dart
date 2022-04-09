@@ -56,7 +56,7 @@ class _PostCardState extends State<PostCard> {
     return Container(
       decoration: BoxDecoration(
         border: Border.all(
-          color: width > webScreenSzie ? secondaryColor : mobileBackgroundColor,
+          color: width > webScreenSize ? secondaryColor : mobileBackgroundColor,
         ),
         color: mobileBackgroundColor,
       ),
