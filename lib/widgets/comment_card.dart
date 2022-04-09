@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
@@ -18,11 +19,17 @@ class _CommentCardState extends State<CommentCard> {
       padding: const EdgeInsets.symmetric(vertical: 18, horizontal: 16),
       child: Row(
         children: [
-          CircleAvatar(
-            backgroundImage: NetworkImage(
-              widget.snap['profImage'],
+          Container(
+            width: 36,
+            height: 36,
+            decoration: BoxDecoration(
+              shape: BoxShape.circle,
+              image: DecorationImage(
+                image: CachedNetworkImageProvider(
+                  widget.snap['profImage'],
+                ),
+              ),
             ),
-            radius: 18,
           ),
           Expanded(
             child: Padding(

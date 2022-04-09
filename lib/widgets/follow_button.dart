@@ -36,7 +36,7 @@ class FollowButton extends StatelessWidget {
             ),
           ),
           width: 200,
-          height: 30,
+          height: 35,
         ),
       ),
     );

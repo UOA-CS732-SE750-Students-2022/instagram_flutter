@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
@@ -64,11 +65,18 @@ class _SearchScreenState extends State<SearchScreen> {
                         ),
                       ),
                       child: ListTile(
-                        leading: CircleAvatar(
-                          backgroundImage: NetworkImage(
-                            (snapshot.data! as dynamic).docs[index]['photoUrl'],
+                        leading: Container(
+                          width: 32,
+                          height: 32,
+                          decoration: BoxDecoration(
+                            shape: BoxShape.circle,
+                            image: DecorationImage(
+                              image: CachedNetworkImageProvider(
+                                (snapshot.data! as dynamic).docs[index]
+                                    ['photoUrl'],
+                              ),
+                            ),
                           ),
-                          radius: 16,
                         ),
                         title: Text(
                           (snapshot.data! as dynamic).docs[index]['username'],
@@ -90,9 +98,17 @@ class _SearchScreenState extends State<SearchScreen> {
                     mainAxisSpacing: 8,
                     crossAxisSpacing: 8,
                     itemCount: (snapshot.data! as dynamic).docs.length,
-                    itemBuilder: (context, index) => Image.network(
-                      (snapshot.data! as dynamic).docs[index]['postUrl'],
-                      fit: BoxFit.cover,
+                    itemBuilder: (context, index) => CachedNetworkImage(
+                      imageUrl: (snapshot.data! as dynamic).docs[index]
+                          ['postUrl'],
+                      imageBuilder: (context, imageProvider) => Container(
+                        decoration: BoxDecoration(
+                          image: DecorationImage(
+                            image: imageProvider,
+                            fit: BoxFit.cover,
+                          ),
+                        ),
+                      ),
                     ),
                     staggeredTileBuilder: (index) => MediaQuery.of(context)
                                 .size

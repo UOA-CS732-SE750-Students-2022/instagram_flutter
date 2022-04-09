@@ -1,5 +1,6 @@
 import 'dart:typed_data';
 
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:instagram_flutter/models/user.dart' as model;
@@ -148,8 +149,17 @@ class _AddPostScreenState extends State<AddPostScreen> {
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    CircleAvatar(
-                      backgroundImage: NetworkImage(user.photoUrl),
+                    Container(
+                      width: 36,
+                      height: 36,
+                      decoration: BoxDecoration(
+                        shape: BoxShape.circle,
+                        image: DecorationImage(
+                          image: CachedNetworkImageProvider(
+                            user.photoUrl,
+                          ),
+                        ),
+                      ),
                     ),
                     SizedBox(
                       width: 250,
@@ -166,7 +176,7 @@ class _AddPostScreenState extends State<AddPostScreen> {
                       height: 45,
                       width: 45,
                       child: AspectRatio(
-                        aspectRatio: 487 / 451,
+                        aspectRatio: 1,
                         child: Container(
                           decoration: BoxDecoration(
                             image: DecorationImage(

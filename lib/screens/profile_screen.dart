@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -102,11 +103,17 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       children: [
                         Row(
                           children: [
-                            CircleAvatar(
-                              backgroundColor: Colors.grey,
-                              radius: 40,
-                              backgroundImage:
-                                  NetworkImage(userData['photoUrl']),
+                            Container(
+                              width: 80,
+                              height: 80,
+                              decoration: BoxDecoration(
+                                shape: BoxShape.circle,
+                                image: DecorationImage(
+                                  image: CachedNetworkImageProvider(
+                                    userData['photoUrl'],
+                                  ),
+                                ),
+                              ),
                             ),
                             Expanded(
                               child: Row(
@@ -221,11 +228,17 @@ class _ProfileScreenState extends State<ProfileScreen> {
                           DocumentSnapshot snap =
                               (snapshot.data as dynamic).docs[index];
 
-                          return Image(
-                            image: NetworkImage(
-                              (snapshot.data as dynamic).docs[index]['postUrl'],
+                          return CachedNetworkImage(
+                            imageUrl: (snapshot.data as dynamic).docs[index]
+                                ['postUrl'],
+                            imageBuilder: (context, imageProvider) => Container(
+                              decoration: BoxDecoration(
+                                image: DecorationImage(
+                                  image: imageProvider,
+                                  fit: BoxFit.cover,
+                                ),
+                              ),
                             ),
-                            fit: BoxFit.cover,
                           );
                         },
                       );
