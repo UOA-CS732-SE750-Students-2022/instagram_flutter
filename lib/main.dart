@@ -69,7 +69,6 @@ class MyApp extends StatelessWidget {
               if (snapshot.connectionState == ConnectionState.waiting) {
                 return const SplashScreen();
               }
-
               return const LoginScreen();
             },
           )),

@@ -20,6 +20,12 @@ class _WebScreenLayoutState extends State<WebScreenLayout> {
     pageController = PageController();
   }
 
+  @override
+  void dispose() {
+    super.dispose();
+    pageController.dispose();
+  }
+
   void navigationTapped(int page) {
     pageController.jumpToPage(page);
     setState(() {
@@ -28,9 +34,12 @@ class _WebScreenLayoutState extends State<WebScreenLayout> {
   }
 
   void onPageChanged(int page) {
-    setState(() {
-      _page = page;
-    });
+    if (mounted) {
+      // to prevent error when the widget is disposed
+      setState(() {
+        _page = page;
+      });
+    }
   }
 
   @override
