@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:instagram_flutter/providers/user_provider.dart';
@@ -28,7 +29,6 @@ class _PostCardState extends State<PostCard> {
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     getComments();
   }
@@ -158,9 +158,16 @@ class _PostCardState extends State<PostCard> {
               SizedBox(
                 height: MediaQuery.of(context).size.height * 0.35,
                 width: double.infinity,
-                child: Image.network(
-                  widget.snap['postUrl'].toString(),
-                  fit: BoxFit.cover,
+                child: CachedNetworkImage(
+                  imageUrl: widget.snap['postUrl'].toString(),
+                  imageBuilder: (context, imageProvider) => Container(
+                    decoration: BoxDecoration(
+                      image: DecorationImage(
+                        image: imageProvider,
+                        fit: BoxFit.cover,
+                      ),
+                    ),
+                  ),
                 ),
               ),
               AnimatedOpacity(
