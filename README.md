@@ -1,6 +1,8 @@
-# instagram_flutter
+# Instagram_flutter
 
-A new Flutter project.
+The Instagram clone by using flutter and firebase
+
+[![Codemagic build status](https://api.codemagic.io/apps/62512f57ddae835f04ad3abd/62512f57ddae835f04ad3abc/status_badge.svg)](https://codemagic.io/apps/62512f57ddae835f04ad3abd/62512f57ddae835f04ad3abc/latest_build)
 
 ## Getting Started
 
