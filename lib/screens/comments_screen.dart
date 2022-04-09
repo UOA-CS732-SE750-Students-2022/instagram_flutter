@@ -55,7 +55,6 @@ class _CommentScreenState extends State<CommentScreen> {
           }
           // display comments
           return ListView.builder(
-            // todo update to use type of snapshot
             itemCount: (snapshot.data! as dynamic).docs.length,
             itemBuilder: (context, index) => CommentCard(
               snap: (snapshot.data! as dynamic).docs[index].data(),

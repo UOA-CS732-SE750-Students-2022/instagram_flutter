@@ -115,15 +115,15 @@ class _SignUpScreenState extends State<SignUpScreen> {
                           radius: 64,
                           backgroundImage: MemoryImage(_image!),
                         )
-                      // todo update the placeholder
                       : const CircleAvatar(
                           radius: 64,
                           backgroundImage: NetworkImage(
-                              "https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB12MHxwaG90by1wYWdlfHx12fGVufDB12fHx12&auto=format&fit=crop&w=120&q=120"),
+                              'https://i.stack.imgur.com/l60Hf.png'),
+                          backgroundColor: secondaryColor,
                         ),
                   Positioned(
                     bottom: -10,
-                    left: 120,
+                    right: -10,
                     child: IconButton(
                       onPressed: () {
                         selectImage();

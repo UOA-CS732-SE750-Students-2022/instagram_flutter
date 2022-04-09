@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class FollowButton extends StatelessWidget {
-  final Function()? function; // todo update to callback
+  final Function()? function;
   final Color backgroundColor;
   final Color borderColor;
   final String text;
