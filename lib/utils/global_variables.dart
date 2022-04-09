@@ -14,5 +14,6 @@ List<Widget> homeScreenItems = [
   const Text("Like"),
   ProfileScreen(
     uid: FirebaseAuth.instance.currentUser!.uid,
+    needAppBar: false,
   ),
 ];

@@ -33,6 +33,15 @@ class _CommentScreenState extends State<CommentScreen> {
         backgroundColor: mobileBackgroundColor,
         title: const Text('Comments'),
         centerTitle: false,
+        leading: InkWell(
+          onTap: () {
+            Navigator.pop(context);
+          },
+          child: const Icon(
+            Icons.arrow_back_ios,
+            color: primaryColor,
+          ),
+        ),
       ),
       body: StreamBuilder(
         stream: FirebaseFirestore.instance
