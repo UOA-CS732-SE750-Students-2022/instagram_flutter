@@ -150,45 +150,23 @@ class _AddPostScreenState extends State<AddPostScreen> {
                 ),
               ],
             ),
-            body: Column(
-              children: [
-                _isLoading
-                    ? const LinearProgressIndicator()
-                    : const Padding(
-                        padding: EdgeInsets.only(top: 0),
-                      ),
-                const Divider(),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Container(
-                      width: 36,
-                      height: 36,
-                      decoration: BoxDecoration(
-                        shape: BoxShape.circle,
-                        image: DecorationImage(
-                          image: CachedNetworkImageProvider(
-                            user.photoUrl,
-                          ),
+            body: SingleChildScrollView(
+              physics: const BouncingScrollPhysics(
+                parent: AlwaysScrollableScrollPhysics(),
+              ),
+              child: Column(
+                children: [
+                  _isLoading
+                      ? const LinearProgressIndicator()
+                      : const Padding(
+                          padding: EdgeInsets.only(top: 0),
                         ),
-                      ),
-                    ),
-                    SizedBox(
-                      width: 250,
-                      child: TextField(
-                        controller: _descriptionController,
-                        decoration: const InputDecoration(
-                          hintText: "Write a caption...",
-                          border: InputBorder.none,
-                        ),
-                        maxLines: 8,
-                      ),
-                    ),
-                    SizedBox(
-                      height: 45,
-                      width: 45,
-                      child: AspectRatio(
+                  const Divider(),
+                  Column(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      AspectRatio(
                         aspectRatio: 1,
                         child: Container(
                           decoration: BoxDecoration(
@@ -199,10 +177,55 @@ class _AddPostScreenState extends State<AddPostScreen> {
                           ),
                         ),
                       ),
-                    )
-                  ],
-                )
-              ],
+                      const SizedBox(height: 8),
+                      Row(
+                        children: [
+                          Container(
+                            width: 36,
+                            height: 36,
+                            decoration: BoxDecoration(
+                              shape: BoxShape.circle,
+                              image: DecorationImage(
+                                image: CachedNetworkImageProvider(
+                                  user.photoUrl,
+                                ),
+                              ),
+                            ),
+                          ),
+                          Expanded(
+                            child: Padding(
+                              padding: const EdgeInsets.only(left: 8),
+                              child: Column(
+                                mainAxisSize: MainAxisSize.min,
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(
+                                    user.username,
+                                    style: const TextStyle(
+                                        fontWeight: FontWeight.w700),
+                                  )
+                                ],
+                              ),
+                            ),
+                          )
+                        ],
+                      ),
+                      const SizedBox(height: 8),
+                      SizedBox(
+                        width: double.infinity,
+                        child: TextField(
+                          controller: _descriptionController,
+                          decoration: const InputDecoration(
+                            hintText: "Write a caption...",
+                            border: InputBorder.none,
+                          ),
+                          maxLines: 8,
+                        ),
+                      ),
+                    ],
+                  )
+                ],
+              ),
             ),
           );
   }
