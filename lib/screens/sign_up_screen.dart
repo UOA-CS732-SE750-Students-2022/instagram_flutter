@@ -8,9 +8,9 @@ import 'package:instagram_flutter/utils/colors.dart';
 import 'package:instagram_flutter/utils/utils.dart';
 import 'package:instagram_flutter/widgets/text_field_inout.dart';
 
-import '../responsive/mobile_screen_layout.dart';
-import '../responsive/responsive_layout_screen.dart';
-import '../responsive/web_screen_layout.dart';
+import 'package:instagram_flutter/responsive/mobile_screen_layout.dart';
+import 'package:instagram_flutter/responsive/responsive_layout_screen.dart';
+import 'package:instagram_flutter/responsive/web_screen_layout.dart';
 import 'login_screen.dart';
 
 class SignUpScreen extends StatefulWidget {

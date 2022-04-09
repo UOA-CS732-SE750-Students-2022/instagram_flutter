@@ -6,10 +6,10 @@ import 'package:instagram_flutter/utils/colors.dart';
 import 'package:instagram_flutter/utils/global_variables.dart';
 import 'package:instagram_flutter/widgets/text_field_inout.dart';
 
-import '../responsive/mobile_screen_layout.dart';
-import '../responsive/responsive_layout_screen.dart';
-import '../responsive/web_screen_layout.dart';
-import '../utils/utils.dart';
+import 'package:instagram_flutter/responsive/mobile_screen_layout.dart';
+import 'package:instagram_flutter/responsive/responsive_layout_screen.dart';
+import 'package:instagram_flutter/responsive/web_screen_layout.dart';
+import 'package:instagram_flutter/utils/utils.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({Key? key}) : super(key: key);

@@ -88,6 +88,5 @@ class _WebScreenLayoutState extends State<WebScreenLayout> {
         onPageChanged: onPageChanged,
       ),
     );
-    ;
   }
 }

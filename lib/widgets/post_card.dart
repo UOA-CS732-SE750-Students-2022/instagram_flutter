@@ -12,6 +12,7 @@ import 'package:provider/provider.dart';
 import 'package:instagram_flutter/models/user.dart' as model;
 
 import '../resources/firestore_methods.dart';
+import '../screens/profile_screen.dart';
 
 class PostCard extends StatefulWidget {
   final snap;
@@ -55,6 +56,7 @@ class _PostCardState extends State<PostCard> {
 
     return Container(
       decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(4),
         border: Border.all(
           color: width > webScreenSize ? secondaryColor : mobileBackgroundColor,
         ),
@@ -64,15 +66,25 @@ class _PostCardState extends State<PostCard> {
       child: Column(children: [
         // header section
         Container(
-          padding: const EdgeInsets.symmetric(
-            vertical: 4,
-            horizontal: 16,
+          padding: const EdgeInsets.only(
+            bottom: 10,
+            left: 16,
+            right: 16,
           ).copyWith(right: 0),
           child: Row(
             children: [
-              CircleAvatar(
-                radius: 16,
-                backgroundImage: NetworkImage(widget.snap['profImage']),
+              InkWell(
+                onTap: () => Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (context) => ProfileScreen(
+                      uid: widget.snap['uid'],
+                    ),
+                  ),
+                ),
+                child: CircleAvatar(
+                  radius: 16,
+                  backgroundImage: NetworkImage(widget.snap['profImage']),
+                ),
               ),
               Expanded(
                 child: Padding(
