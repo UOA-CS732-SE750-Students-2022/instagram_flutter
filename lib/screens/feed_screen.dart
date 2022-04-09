@@ -23,6 +23,7 @@ class FeedScreen extends StatelessWidget {
                 "assets/ic_instagram.svg",
                 color: primaryColor,
               ),
+              automaticallyImplyLeading: false,
               actions: [
                 IconButton(
                   onPressed: () {},

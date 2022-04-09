@@ -108,9 +108,22 @@ class _AddPostScreenState extends State<AddPostScreen> {
 
     return _file == null
         ? Center(
-            child: IconButton(
-              onPressed: () => _selectImage(context),
-              icon: const Icon(Icons.upload),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                IconButton(
+                  onPressed: () => _selectImage(context),
+                  icon: const Icon(Icons.upload),
+                ),
+                const Text(
+                  "Click this update icon\nto create your post",
+                  style: TextStyle(
+                    color: primaryColor,
+                  ),
+                  textAlign: TextAlign.center,
+                ),
+              ],
             ),
           )
         : Scaffold(
