@@ -71,6 +71,7 @@ class _SearchScreenState extends State<SearchScreen> {
                         decoration: BoxDecoration(
                           shape: BoxShape.circle,
                           image: DecorationImage(
+                            fit: BoxFit.cover,
                             image: CachedNetworkImageProvider(
                               (snapshot.data! as dynamic).docs[index]
                                   ['photoUrl'],

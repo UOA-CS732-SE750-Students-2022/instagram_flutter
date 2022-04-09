@@ -186,6 +186,7 @@ class _AddPostScreenState extends State<AddPostScreen> {
                             decoration: BoxDecoration(
                               shape: BoxShape.circle,
                               image: DecorationImage(
+                                fit: BoxFit.cover,
                                 image: CachedNetworkImageProvider(
                                   user.photoUrl,
                                 ),

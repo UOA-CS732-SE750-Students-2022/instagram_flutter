@@ -81,6 +81,7 @@ class _PostCardState extends State<PostCard> {
                   decoration: BoxDecoration(
                     shape: BoxShape.circle,
                     image: DecorationImage(
+                      fit: BoxFit.cover,
                       image: CachedNetworkImageProvider(
                         widget.snap['profImage'],
                       ),

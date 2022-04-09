@@ -77,6 +77,7 @@ class _CommentScreenState extends State<CommentScreen> {
                 decoration: BoxDecoration(
                   shape: BoxShape.circle,
                   image: DecorationImage(
+                    fit: BoxFit.cover,
                     image: CachedNetworkImageProvider(
                       user.photoUrl,
                     ),

@@ -131,6 +131,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
           decoration: BoxDecoration(
             shape: BoxShape.circle,
             image: DecorationImage(
+              fit: BoxFit.cover,
               image: CachedNetworkImageProvider(
                 userData['photoUrl'],
               ),

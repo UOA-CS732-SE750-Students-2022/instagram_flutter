@@ -75,97 +75,85 @@ class _LoginScreenState extends State<LoginScreen> {
                   horizontal: MediaQuery.of(context).size.width / 3)
               : const EdgeInsets.symmetric(horizontal: 32),
           width: double.infinity,
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              Flexible(
-                child: Container(),
-                flex: 2,
-              ),
-              // svg image
-              SvgPicture.asset(
-                "assets/ic_instagram.svg",
-                color: primaryColor,
-                height: 64,
-              ),
-              const SizedBox(
-                height: 64,
-              ),
-              // text field input for email
-              TextFieldInput(
-                textEditingController: _emailController,
-                hintText: "Enter your email",
-                textInputType: TextInputType.emailAddress,
-              ),
-              const SizedBox(
-                height: 24,
-              ),
-              // text field input for password
-              TextFieldInput(
-                textEditingController: _passwordController,
-                hintText: "Enter your password",
-                textInputType: TextInputType.text,
-                isPass: true,
-              ),
-              const SizedBox(
-                height: 24,
-              ),
-              // button login
-              InkWell(
-                onTap: loginUser,
-                child: Container(
-                  child: _isLoading
-                      ? const Center(
-                          child: CircularProgressIndicator(
-                            color: primaryColor,
+          child: Center(
+            child: SingleChildScrollView(
+              child: Wrap(
+                runSpacing: 24,
+                alignment: WrapAlignment.center,
+                children: [
+                  // svg image
+                  SvgPicture.asset(
+                    "assets/ic_instagram.svg",
+                    color: primaryColor,
+                    height: 64,
+                  ),
+                  const SizedBox(
+                    height: 12,
+                  ),
+                  // text field input for email
+                  TextFieldInput(
+                    textEditingController: _emailController,
+                    hintText: "Enter your email",
+                    textInputType: TextInputType.emailAddress,
+                  ),
+                  // text field input for password
+                  TextFieldInput(
+                    textEditingController: _passwordController,
+                    hintText: "Enter your password",
+                    textInputType: TextInputType.text,
+                    isPass: true,
+                  ),
+                  // button login
+                  InkWell(
+                    onTap: loginUser,
+                    child: Container(
+                      child: _isLoading
+                          ? const Center(
+                              child: CircularProgressIndicator(
+                                color: primaryColor,
+                              ),
+                            )
+                          : const Text("Log in"),
+                      width: double.infinity,
+                      alignment: Alignment.center,
+                      padding: const EdgeInsets.symmetric(vertical: 12),
+                      decoration: const ShapeDecoration(
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.all(
+                            Radius.circular(4),
                           ),
-                        )
-                      : const Text("Log in"),
-                  width: double.infinity,
-                  alignment: Alignment.center,
-                  padding: const EdgeInsets.symmetric(vertical: 12),
-                  decoration: const ShapeDecoration(
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.all(
-                        Radius.circular(4),
+                        ),
+                        color: blueColor,
                       ),
                     ),
-                    color: blueColor,
                   ),
-                ),
-              ),
-              const SizedBox(
-                height: 12,
-              ),
-              Flexible(
-                child: Container(),
-                flex: 2,
-              ),
-              // transitioning to signing up
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Container(
-                    child: const Text(
-                      'Dont have an account?',
-                    ),
-                    padding: const EdgeInsets.symmetric(vertical: 12),
-                  ),
-                  GestureDetector(
-                    onTap: navigateToSignUp,
-                    child: Container(
-                      child: const Text(
-                        ' Signup.',
-                        style: TextStyle(
-                          fontWeight: FontWeight.bold,
+                  // transitioning to signing up
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Container(
+                        child: const Text(
+                          'Dont have an account?',
+                        ),
+                        padding: const EdgeInsets.symmetric(vertical: 12),
+                      ),
+                      GestureDetector(
+                        onTap: navigateToSignUp,
+                        child: Container(
+                          child: const Text(
+                            ' Signup.',
+                            style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                          padding: const EdgeInsets.symmetric(vertical: 12),
                         ),
                       ),
-                      padding: const EdgeInsets.symmetric(vertical: 12),
-                    ),
+                    ],
                   ),
                 ],
               ),
-            ],
+            ),
           ),
         ),
       ),

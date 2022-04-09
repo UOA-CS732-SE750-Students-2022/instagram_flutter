@@ -25,6 +25,7 @@ class _CommentCardState extends State<CommentCard> {
             decoration: BoxDecoration(
               shape: BoxShape.circle,
               image: DecorationImage(
+                fit: BoxFit.cover,
                 image: CachedNetworkImageProvider(
                   widget.snap['profImage'],
                 ),
