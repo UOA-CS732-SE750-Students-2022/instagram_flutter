@@ -1,10 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 
 import '../utils/colors.dart';
 
-class CommentCard extends StatelessWidget {
-  const CommentCard({Key? key}) : super(key: key);
+class CommentCard extends StatefulWidget {
+  final snap;
+  const CommentCard({Key? key, required this.snap}) : super(key: key);
 
+  @override
+  State<CommentCard> createState() => _CommentCardState();
+}
+
+class _CommentCardState extends State<CommentCard> {
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -13,7 +20,8 @@ class CommentCard extends StatelessWidget {
         children: [
           CircleAvatar(
             backgroundImage: NetworkImage(
-                "https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB12MHxwaG90by1wYWdlfHx12fGVufDB12fHx12&auto=format&fit=crop&w=120&q=120"),
+              widget.snap['profImage'],
+            ),
             radius: 18,
           ),
           Expanded(
@@ -32,11 +40,11 @@ class CommentCard extends StatelessWidget {
                       ),
                       children: [
                         TextSpan(
-                          text: "username",
+                          text: widget.snap['name'],
                           style: TextStyle(fontWeight: FontWeight.bold),
                         ),
                         TextSpan(
-                          text: "some description to insert",
+                          text: ' ${widget.snap['text']}',
                         ),
                       ],
                     ),
@@ -44,9 +52,11 @@ class CommentCard extends StatelessWidget {
                   Padding(
                     padding: const EdgeInsets.only(top: 4),
                     child: Text(
-                      "23/12/2022",
-                      style:
-                          TextStyle(fontSize: 12, fontWeight: FontWeight.w400),
+                      DateFormat.yMMMd().format(
+                        widget.snap['datePublished'].toDate(),
+                      ),
+                      style: const TextStyle(
+                          fontSize: 12, fontWeight: FontWeight.w400),
                     ),
                   )
                 ],

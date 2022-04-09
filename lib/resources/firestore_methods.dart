@@ -52,11 +52,13 @@ class FirestoreMethods {
     }
   }
 
+  // add comment to firestore
   Future<void> postComment(String postId, String text, String uid, String name,
       String profImage) async {
     try {
       if (text.isNotEmpty) {
         String commendId = const Uuid().v1();
+        // comments is the subcollection of posts
         await _firestore
             .collection("posts")
             .doc(postId)
@@ -72,6 +74,44 @@ class FirestoreMethods {
         });
       } else {
         print("Text is empty");
+      }
+    } catch (err) {
+      print(err.toString());
+    }
+  }
+
+  // delete the post
+  Future<void> deletePost(String postId) async {
+    try {
+      await _firestore.collection("posts").doc(postId).delete();
+    } catch (err) {
+      print(err.toString());
+    }
+  }
+
+  // follow user
+  Future<void> followUser(String currentUserId, String userId) async {
+    try {
+      DocumentSnapshot snap =
+          await _firestore.collection("users").doc(currentUserId).get();
+      List following = (snap.data() as dynamic)['following']!;
+
+      if (following.contains(userId)) {
+        await _firestore.collection("users").doc(userId).update({
+          "followers": FieldValue.arrayRemove([currentUserId]),
+        });
+
+        await _firestore.collection("users").doc(currentUserId).update({
+          "following": FieldValue.arrayRemove([userId]),
+        });
+      } else {
+        await _firestore.collection("users").doc(userId).update({
+          "followers": FieldValue.arrayUnion([currentUserId]),
+        });
+
+        await _firestore.collection("users").doc(currentUserId).update({
+          "following": FieldValue.arrayUnion([userId]),
+        });
       }
     } catch (err) {
       print(err.toString());
