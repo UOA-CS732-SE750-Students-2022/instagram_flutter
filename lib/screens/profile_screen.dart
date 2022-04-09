@@ -256,7 +256,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
             label,
             style: const TextStyle(
               fontSize: 16,
-              fontWeight: FontWeight.w400,
+              fontWeight: FontWeight.normal,
               color: Colors.grey,
             ),
           ),

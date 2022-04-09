@@ -97,7 +97,7 @@ class _PostCardState extends State<PostCard> {
                     children: [
                       Text(
                         widget.snap['username'],
-                        style: const TextStyle(fontWeight: FontWeight.bold),
+                        style: const TextStyle(fontWeight: FontWeight.w700),
                       )
                     ],
                   ),
@@ -261,7 +261,7 @@ class _PostCardState extends State<PostCard> {
                   style: Theme.of(context)
                       .textTheme
                       .subtitle2!
-                      .copyWith(fontWeight: FontWeight.w800),
+                      .copyWith(fontWeight: FontWeight.bold),
                   child: Text(
                     '${widget.snap['likes'].length} likes',
                     style: Theme.of(context).textTheme.bodyText2,
@@ -274,6 +274,7 @@ class _PostCardState extends State<PostCard> {
                     text: TextSpan(
                       style: const TextStyle(
                         color: primaryColor,
+                        fontFamily: "Montserrat",
                       ),
                       children: [
                         TextSpan(
