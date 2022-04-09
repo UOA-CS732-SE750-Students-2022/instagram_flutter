@@ -48,7 +48,7 @@ class _SearchScreenState extends State<SearchScreen> {
                         isGreaterThanOrEqualTo: _searchController.text)
                     .get(),
                 builder: (context, snapshot) {
-                  if (!snapshot.hasData) {
+                  if (snapshot.connectionState == ConnectionState.waiting) {
                     return const Center(child: CircularProgressIndicator());
                   }
 
