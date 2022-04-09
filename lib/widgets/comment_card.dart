@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
-import '../utils/colors.dart';
+import 'package:instagram_flutter/utils/colors.dart';
 
 class CommentCard extends StatefulWidget {
   final snap;

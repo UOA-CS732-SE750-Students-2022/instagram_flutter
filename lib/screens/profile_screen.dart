@@ -85,14 +85,9 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     backgroundColor: mobileBackgroundColor,
                     title: Text(userData['username']),
                     centerTitle: false,
-                    leading: InkWell(
-                      onTap: () {
-                        Navigator.pop(context);
-                      },
-                      child: const Icon(
-                        Icons.arrow_back_ios,
-                        color: primaryColor,
-                      ),
+                    leading: IconButton(
+                      icon: const Icon(Icons.arrow_back_ios_new),
+                      onPressed: () => Navigator.pop(context),
                     ),
                   ),
             body: Container(

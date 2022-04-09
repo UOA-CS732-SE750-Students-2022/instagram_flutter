@@ -10,9 +10,7 @@ import 'package:instagram_flutter/widgets/like_animation.dart';
 import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
 import 'package:instagram_flutter/models/user.dart' as model;
-
-import '../resources/firestore_methods.dart';
-import '../screens/profile_screen.dart';
+import 'package:instagram_flutter/screens/profile_screen.dart';
 
 class PostCard extends StatefulWidget {
   final snap;
