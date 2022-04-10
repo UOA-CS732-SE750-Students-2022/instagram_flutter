@@ -122,7 +122,7 @@ Technical stack:
 
 
 
-PS: I have setup the firebase, so don't need to do any change about that
+PS: I have setup the firebase, so don't need to make any change about that.
 
 
 
