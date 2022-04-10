@@ -14,6 +14,8 @@ The Instagram clone by using flutter and firebase
 3. Learn Dart and Flutter
 4. About this Demo
 5. How to start
+5. License
+5. Resource
 
 ## Screenshot
 
@@ -129,4 +131,17 @@ PS: I have setup the firebase, so don't need to make any change about that.
 #### Download APK file
 
 - Here is the link for APK, so just download it into your android device and do not have to install Flutter to build
-- 👉
+- 👉 [codomagic](https://api.codemagic.io/artifacts/28f90b65-ff19-449e-99cc-c1b22d308385/f2547d44-eee3-498f-9091-1574fd943557/app-release.apk)
+- 👉 check the release, which also include the APK file
+
+
+
+## License
+
+[MIT License](https://github.com/UOA-CS732-SE750-Students-2022/instagram_flutter/blob/main/LICENSE)
+
+
+
+## Resource
+
+[BRAND OVERVIEW](https://www.facebook.com/brand/resources/instagram/instagram-brand/)
